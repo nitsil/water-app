@@ -1,0 +1,12 @@
+{
+  "name": "water-app",
+  "displayName": "water-app",
+  "expo": {
+    "name": "water-app",
+    "slug": "water-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
