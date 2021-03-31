@@ -10,9 +10,13 @@ import { Provider } from 'react-redux';
 import auth from '@react-native-firebase/auth';
 import { TextInput } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import History from './view/history'
+import WaterDetails from './view/water'
+import LoginScreen from './view/login'
 
 auth()
   .signInWithEmailAndPassword('test@water.app', 'test@water.app')
+  .then(res => res.json())
   .then((res) => {
     console.log('User account created & signed in!', res);
 
@@ -36,39 +40,6 @@ auth()
     console.error(error);
   });
 
-function LoginScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Login Screen</Text>
-      <TextInput placeholder="Login" />
-      <TextInput placeholder="Password" />
-
-      <Button
-        title="Log in"
-        onPress={() => navigation.navigate('WaterDetails')}
-      />
-    </View>
-  );
-}
-
-function WaterDetails() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Water Details Screen</Text>
-    </View>
-  );
-}
-
-function History() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>History</Text>
-    </View>
-  );
-}
-
-
-const Stack = createStackNavigator();
 const LoginStack = createStackNavigator();
 
 function App({ navigation }) {
