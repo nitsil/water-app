@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "141295321431",
-    "project_id": "water-app-9335f",
-    "storage_bucket": "water-app-9335f.appspot.com"
+    "project_number": "123727158552",
+    "project_id": "water-8b6fb",
+    "storage_bucket": "water-8b6fb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:141295321431:android:995596ea78f4e751edbe12",
+        "mobilesdk_app_id": "1:123727158552:android:9e199ba92396425780926d",
         "android_client_info": {
-          "package_name": "water.app"
+          "package_name": "com.waterapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "141295321431-9dbhmcm6aiuk4cdsrfj5p0fvg89j4b76.apps.googleusercontent.com",
+          "client_id": "123727158552-sg838fqqebpjq0su95o4ckfke8b8ovie.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBgB-8P-HBgP-BaVw2eVElFB4UxlYYYlEs"
+          "current_key": "AIzaSyCUWESHEbc5zm2BjdBQ_jQVyfO43hjOvpo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "141295321431-9dbhmcm6aiuk4cdsrfj5p0fvg89j4b76.apps.googleusercontent.com",
+              "client_id": "123727158552-sg838fqqebpjq0su95o4ckfke8b8ovie.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "141295321431-aotppkq4t0lbs8d6movfcbrlqb49are0.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "water.app"
-              }
             }
           ]
         }

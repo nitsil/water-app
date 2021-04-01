@@ -1,20 +1,20 @@
-import * as actions from '../actions/history'
+import * as actions from '../actions/water'
 
 const initialState = {
-    data: []
+    waterCups: 0
 };
 
 export default function (state = initialState, action) {
     switch(action.type) {
-        case actions.ADD_TO_HISTORY: 
+        case actions.DRINK_WATER_CUP: 
             return {
                 ...state,
-                data: [...state.data, action.data]
+                waterCups: ++state.waterCups
         }
-        case actions.CLEAR_HISTORY:
+        case actions.CLEAR_WATER_CUPS:
             return {
                 ...state,
-                data: []
+                waterCups: 0
             }
         default:
             return state

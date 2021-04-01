@@ -1,25 +1,40 @@
 import React from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux';
-import { addToHistory } from '../redux/actions/history';
-import moment from 'moment'
-import { FlatList } from 'react-native-gesture-handler';
+import { useSelector } from 'react-redux';
+import { FlatList, StyleSheet, Text, View } from 'react-native'
+import moment from 'moment';
 
 export default History = () => {
-    let history = useSelector(store => store.history) //history.data = [{timestamp}]
-
+    let history = useSelector(store => store.history.data) //history.data = [{timestamp}]
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>History</Text>
+        <View style={styles.container}>
+            <View style={styles.headerContainer}>
+                <Text>Your history</Text>
+            </View>
             <FlatList
-                keyExtractor={item => item.id}
+                keyExtractor={(item, index) => `history_${index}`}
                 data={history}
-                renderItem={item => (<Text>{moment(item.timestamp).format('DD-MM-YYYY HH:mm')}</Text>)}
+                showsVerticalScrollIndicator={false}
+                renderItem={({ item }) => {
+                    const date = moment(+item.timestamp * 1000).format('DD-MM-YYYY HH:mm')
+                    const whaterCups = item.waterCups + 1
+                    const cupsText = whaterCups > 1 ? 'cups' : 'cup'
+                    
+                    return (
+                        <View style={styles.historyItemContainer}>
+                            <Text>{date} - </Text>
+                            <Text style={{
+                                fontWeight: '600'
+                            }}>{whaterCups} {cupsText} ({Math.round(whaterCups * 100 / 12)}%)</Text>
+                        </View>
+                    )
+                }}
             />
-            {/* { history.map((el, index => {
-                return <div key={el + index}>
-                    {moment(el.timestamp).format('DD-MM-YYYY HH:mm')} //moment(availability.time_start).format('YYYY-MM-DD')
-                </div>
-            }))} */}
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: { flex: 1, paddingHorizontal: 20, marginBottom: 15 },
+    headerContainer: { marginTop: 15 },
+    historyItemContainer: { paddingVertical: 15, borderBottomWidth: 1, borderBottomColor: '#CCC', flexDirection: 'row' }
+})
