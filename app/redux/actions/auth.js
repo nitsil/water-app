@@ -26,13 +26,13 @@ export function login(email, password) {
                         },
                         (created) => console.log(`createChannel returned '${created}'`)
                     );
-                    const repeatTime = moment.duration(5, 'm').asMilliseconds()
+                    const repeatTime = moment.duration(2, 'h').asMilliseconds()
                     PushNotification.localNotificationSchedule({
                         channelId: "com.waterapp",
-                        message: 'You pushed a notification',
+                        message: 'Don’t forget to drink a water!',
                         repeatType: 'time',
                         repeatTime,
-                        date: moment().add(5, 'm').toDate()
+                        date: moment().add(2, 'h').toDate()
                     });
                     dispatch(setToken(user?.uid))
                 } else {
